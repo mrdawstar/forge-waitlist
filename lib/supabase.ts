@@ -46,6 +46,33 @@ export class SupabaseConfigError extends Error {
   }
 }
 
+/**
+ * Accepted names for each credential, most specific first. The `SUPABASE_*`
+ * pair is what .env.example documents; the rest are the names Vercel's Supabase
+ * integration and older Supabase templates inject, so a project wired up either
+ * way works without renaming anything.
+ */
+const URL_VARS = ['SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_URL'] as const
+const KEY_VARS = [
+  'SUPABASE_PUBLISHABLE_KEY',
+  'SUPABASE_ANON_KEY',
+  'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
+  'NEXT_PUBLIC_SUPABASE_ANON_KEY',
+] as const
+
+/**
+ * First variable that holds an actual value. A variable that exists but is
+ * blank counts as unset — pasting into a dashboard and leaving the field empty
+ * should fall through to the next name, not win with an empty string.
+ */
+function firstConfigured(names: readonly string[]): string | undefined {
+  for (const name of names) {
+    const value = process.env[name]?.trim()
+    if (value) return value
+  }
+  return undefined
+}
+
 let client: TypedSupabaseClient | null = null
 
 /**
@@ -58,15 +85,12 @@ let client: TypedSupabaseClient | null = null
 export function getSupabaseClient(): TypedSupabaseClient {
   if (client) return client
 
-  const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key =
-    process.env.SUPABASE_PUBLISHABLE_KEY ??
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const url = firstConfigured(URL_VARS)
+  const key = firstConfigured(KEY_VARS)
 
   const missing: string[] = []
-  if (!url) missing.push('SUPABASE_URL')
-  if (!key) missing.push('SUPABASE_PUBLISHABLE_KEY')
+  if (!url) missing.push(URL_VARS.join(' or '))
+  if (!key) missing.push(KEY_VARS.join(' or '))
   if (!url || !key) throw new SupabaseConfigError(missing)
 
   client = createClient<Database>(url, key, {
