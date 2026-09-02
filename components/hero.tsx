@@ -1,5 +1,6 @@
-import { WaitlistForm } from '@/components/waitlist-form'
+import { AppStoreCta, CtaNote } from '@/components/app-store-cta'
 import { PhoneMockup } from '@/components/phone-mockup'
+import { isLive } from '@/lib/site'
 
 export function Hero() {
   return (
@@ -18,7 +19,7 @@ export function Hero() {
         <div className="flex-1">
           <div className="animate-rise mb-8 inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs font-medium tracking-widest text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            FORGE FOR iOS
+            {isLive ? 'FORGE FOR iOS' : 'COMING TO THE APP STORE'}
           </div>
 
           <h1
@@ -26,7 +27,7 @@ export function Hero() {
             style={{ animationDelay: '0.08s' }}
           >
             <span className="text-gradient">
-              Become who you&apos;re capable of becoming.
+              A day you earn, not one you tick.
             </span>
           </h1>
 
@@ -34,18 +35,16 @@ export function Hero() {
             className="animate-rise mx-auto mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground lg:mx-0 lg:text-lg"
             style={{ animationDelay: '0.16s' }}
           >
-            Forge is an iOS app that helps you build discipline through daily
-            missions, habits and AI guidance.
+            Keep a short list of what the day asks of you. Finish it, and a sword
+            in a stone comes loose — then you still have to pull it free.
           </p>
 
           <div
             className="animate-rise mt-9"
             style={{ animationDelay: '0.24s' }}
           >
-            <WaitlistForm className="mx-auto max-w-md lg:mx-0" />
-            <p className="mt-4 text-xs tracking-wide text-muted-foreground/70">
-              Early access. No spam. Leave whenever you like.
-            </p>
+            <AppStoreCta className="mx-auto max-w-md items-center lg:mx-0 lg:items-start" />
+            <CtaNote className="mt-4" />
           </div>
         </div>
 
@@ -57,7 +56,7 @@ export function Hero() {
           <div className="animate-floaty [transform:perspective(1600px)_rotateY(-14deg)_rotateX(4deg)]">
             <PhoneMockup
               src="/screens/forge-home.jpeg"
-              alt="Forge iOS app home screen showing today's missions"
+              alt="The Forge home screen: the sword in the stone above today's list of activities"
               priority
             />
           </div>

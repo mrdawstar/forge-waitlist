@@ -31,14 +31,19 @@ export function Reveal({
     const el = ref.current
     if (!el) return
 
-    // Anything already on screen at mount reveals immediately.
+    // `threshold: 0` deliberately: it fires as soon as any part of the element
+    // overlaps the viewport. A fractional threshold looks equivalent on a card
+    // but is a trap on anything taller than the viewport — an element 10x the
+    // viewport height can never reach a ratio of 0.12, so it would stay
+    // invisible forever. The negative bottom margin keeps the "reveals just
+    // after it comes up" feel that the threshold was there for.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
         setShown(true)
         observer.disconnect()
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0, rootMargin: '0px 0px -8% 0px' },
     )
     observer.observe(el)
     return () => observer.disconnect()

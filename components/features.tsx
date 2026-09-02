@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { BookOpen, Check, Dumbbell, ListChecks, Route, Swords, Wind } from 'lucide-react'
+import { BookOpen, Check, Dumbbell, Hexagon, ListChecks, Swords, Wind } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
 import { cn } from '@/lib/utils'
 
@@ -306,100 +306,153 @@ function BladeVisual({ shown }: { shown: boolean }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  03 — Choose Your Path                                                     */
+/*  03 — What you're building                                                 */
 /* -------------------------------------------------------------------------- */
 
-// Tints stay in the site's blue, just at different depths, so the row reads as
-// one family rather than three unrelated colours.
-const paths = [
-  {
-    tag: 'Solitude',
-    name: 'The Vigil',
-    line: 'You are what you do when nobody is watching.',
-    tint: 'oklch(0.62 0.18 256 / 26%)',
-  },
-  {
-    tag: 'Discipline',
-    name: 'The Ledger',
-    line: 'Small debts, paid daily, become a fortune.',
-    tint: 'oklch(0.55 0.09 256 / 22%)',
-  },
-  {
-    tag: 'Stillness',
-    name: 'The Quiet',
-    line: 'The calm is not a reward. It is the practice.',
-    tint: 'oklch(0.48 0.04 256 / 20%)',
-  },
-]
+/**
+ * The six parts of a person the app files every activity under, drawn as the
+ * Shape: a hexagon whose reach on each axis is how much of the last four weeks
+ * went there. The numbers are illustrative of a real, lopsided week.
+ */
+const dimensions = [
+  { label: 'Physical', value: 71 },
+  { label: 'Intellect', value: 52 },
+  { label: 'Discipline', value: 64 },
+  { label: 'Mental', value: 45 },
+  { label: 'Relationship', value: 18 },
+  { label: 'Ambition', value: 38 },
+] as const
 
-function PathsVisual({ shown }: { shown: boolean }) {
-  const [hovered, setHovered] = useState(0)
+const CENTRE = 100
+const RADIUS = 62
 
+/** Unit vector for axis `i`, starting at the top and going clockwise. */
+function axis(i: number) {
+  const angle = ((-90 + i * (360 / dimensions.length)) * Math.PI) / 180
+  return { x: Math.cos(angle), y: Math.sin(angle) }
+}
+
+function ring(scale: number) {
+  return dimensions
+    .map((_, i) => {
+      const { x, y } = axis(i)
+      return `${(CENTRE + x * RADIUS * scale).toFixed(2)},${(CENTRE + y * RADIUS * scale).toFixed(2)}`
+    })
+    .join(' ')
+}
+
+function shapePoints() {
+  return dimensions
+    .map((d, i) => {
+      const { x, y } = axis(i)
+      const r = RADIUS * (d.value / 100)
+      return `${(CENTRE + x * r).toFixed(2)},${(CENTRE + y * r).toFixed(2)}`
+    })
+    .join(' ')
+}
+
+function ShapeVisual({ shown }: { shown: boolean }) {
   return (
-    <div
-      className="grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3"
-      onMouseLeave={() => setHovered(0)}
-    >
-      {paths.map((path, i) => {
-        const isActive = i === hovered
-        return (
-          // Outer element owns the scroll reveal, inner element owns the hover
-          // lift, so the two transforms never fight over the same property.
-          <div
-            key={path.name}
+    <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8">
+      <div className="relative w-full max-w-[15rem] shrink-0">
+        <svg viewBox="0 0 200 200" className="h-auto w-full" aria-hidden>
+          {/* guide rings */}
+          {[0.35, 0.7, 1].map((scale) => (
+            <polygon
+              key={scale}
+              points={ring(scale)}
+              fill="none"
+              stroke="oklch(1 0 0 / 7%)"
+              strokeWidth="1"
+            />
+          ))}
+          {/* spokes */}
+          {dimensions.map((d, i) => {
+            const { x, y } = axis(i)
+            return (
+              <line
+                key={d.label}
+                x1={CENTRE}
+                y1={CENTRE}
+                x2={CENTRE + x * RADIUS}
+                y2={CENTRE + y * RADIUS}
+                stroke="oklch(1 0 0 / 6%)"
+                strokeWidth="1"
+              />
+            )
+          })}
+          {/* the shape itself */}
+          <polygon
+            points={shapePoints()}
+            fill="oklch(0.62 0.18 256 / 22%)"
+            stroke="oklch(0.68 0.17 256)"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+            style={{
+              transformOrigin: '100px 100px',
+              transitionProperty: 'opacity, transform',
+              transitionDuration: '1100ms',
+              transitionTimingFunction: 'var(--ease-out-expo)',
+              transitionDelay: '260ms',
+              opacity: shown ? 1 : 0,
+              transform: shown ? 'scale(1)' : 'scale(0.4)',
+            }}
+          />
+          {dimensions.map((d, i) => {
+            const { x, y } = axis(i)
+            const r = RADIUS * (d.value / 100)
+            return (
+              <circle
+                key={d.label}
+                cx={CENTRE + x * r}
+                cy={CENTRE + y * r}
+                r="2.5"
+                fill="oklch(0.74 0.16 256)"
+                style={{
+                  transitionProperty: 'opacity',
+                  transitionDuration: '600ms',
+                  transitionTimingFunction: 'var(--ease-out-soft)',
+                  transitionDelay: `${700 + i * 70}ms`,
+                  opacity: shown ? 1 : 0,
+                }}
+              />
+            )
+          })}
+        </svg>
+      </div>
+
+      <ul className="grid w-full grid-cols-2 gap-x-5 gap-y-3 sm:grid-cols-1 sm:gap-y-2.5">
+        {dimensions.map((d, i) => (
+          <li
+            key={d.label}
+            className="flex items-center gap-3"
             style={{
               transitionProperty: 'opacity, transform',
-              transitionDuration: '700ms',
+              transitionDuration: '600ms',
               transitionTimingFunction: 'var(--ease-out-soft)',
-              transitionDelay: shown ? `${i * 90}ms` : '0ms',
+              transitionDelay: `${300 + i * 70}ms`,
               opacity: shown ? 1 : 0,
-              transform: shown ? 'none' : 'translate3d(0, 20px, 0)',
+              transform: shown ? 'none' : 'translate3d(0, 8px, 0)',
             }}
           >
-            <div
-              onMouseEnter={() => setHovered(i)}
-              className={cn(
-                'relative flex items-center gap-3.5 overflow-hidden rounded-[1.125rem] border p-4',
-                'sm:aspect-[3/4] sm:flex-col sm:items-stretch sm:justify-end sm:gap-0',
-                'transition-[transform,border-color] duration-500 will-change-transform',
-                isActive
-                  ? 'border-white/20 sm:-translate-y-1'
-                  : 'border-white/[0.07]',
-              )}
-              style={{
-                transitionTimingFunction: 'var(--ease-out-soft)',
-                background: `linear-gradient(165deg, ${path.tint} 0%, oklch(0.06 0 0 / 90%) 62%), oklch(0.07 0 0)`,
-              }}
-            >
+            <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground">
+              {d.label}
+            </span>
+            <span className="h-1 w-14 shrink-0 overflow-hidden rounded-full bg-white/10 sm:w-20">
               <span
-                className={cn(
-                  'shrink-0 rounded-full px-2 py-1 text-center font-mono text-[0.5625rem] uppercase tracking-[0.18em] transition-colors duration-500',
-                  'min-w-[5.75rem] sm:absolute sm:left-4 sm:top-4 sm:min-w-0',
-                  isActive
-                    ? 'bg-white/15 text-foreground/90'
-                    : 'bg-white/[0.07] text-muted-foreground',
-                )}
-              >
-                {path.tag}
-              </span>
-
-              <span className="relative min-w-0">
-                <span className="block text-sm font-semibold tracking-tight text-foreground/95">
-                  {path.name}
-                </span>
-                <span
-                  className={cn(
-                    'mt-1.5 block text-pretty text-[0.6875rem] leading-snug text-muted-foreground transition-opacity duration-500',
-                    isActive ? 'opacity-100' : 'opacity-100 sm:opacity-55',
-                  )}
-                >
-                  {path.line}
-                </span>
-              </span>
-            </div>
-          </div>
-        )
-      })}
+                className="block h-full origin-left rounded-full bg-primary"
+                style={{
+                  transitionProperty: 'transform',
+                  transitionDuration: '1000ms',
+                  transitionTimingFunction: 'var(--ease-out-expo)',
+                  transitionDelay: `${420 + i * 70}ms`,
+                  transform: shown ? `scaleX(${d.value / 100})` : 'scaleX(0)',
+                }}
+              />
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
@@ -419,7 +472,9 @@ export function Features() {
         setShown(true)
         observer.disconnect()
       },
-      { threshold: 0.12 },
+      // threshold 0, not a fraction: this grid is taller than the viewport, and
+      // a fractional ratio can be unreachable on a short screen.
+      { threshold: 0, rootMargin: '0px 0px -12% 0px' },
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -429,8 +484,8 @@ export function Features() {
     <section className="px-6 py-24 sm:py-28">
       <SectionHeading
         eyebrow="How it works"
-        title="Three ways Forge sharpens you."
-        description="The work, the proof, and the mindset behind both."
+        title="Three parts, one practice."
+        description="The day, the record it leaves, and the shape it builds."
       />
 
       <div
@@ -440,8 +495,8 @@ export function Features() {
         <FeatureCard
           index="01"
           icon={ListChecks}
-          title="Daily Tasks"
-          description="A focused set of tasks every day. Discipline is built by finishing them, not by planning them."
+          title="The day you earn"
+          description="A short list of what today asks of you. Finish all of it and the blade comes loose — then you pull it free yourself."
           shown={shown}
           delay={0}
           className="lg:col-span-7"
@@ -450,8 +505,8 @@ export function Features() {
         <FeatureCard
           index="02"
           icon={Swords}
-          title="Blade Progress"
-          description="Every day you show up is recorded. Keep the streak and the blade you carry grows with you."
+          title="A record that cannot flatter you"
+          description="Every day you kept is counted from what you actually did. Blades and milestones follow. Nothing already earned is ever taken away."
           shown={shown}
           delay={110}
           className="lg:col-span-5"
@@ -459,14 +514,14 @@ export function Features() {
         />
         <FeatureCard
           index="03"
-          icon={Route}
-          title="Choose Your Path"
-          description="Follow a path drawn from characters who were forged by the same thing you are facing."
+          icon={Hexagon}
+          title="What you’re building"
+          description="Every activity belongs to one of six parts of a person, so Forge can show you the shape of the last four weeks — not just its size. Choose which to build, and it aims what it suggests at them."
           shown={shown}
           delay={220}
           className="lg:col-span-12"
           wide
-          visual={<PathsVisual shown={shown} />}
+          visual={<ShapeVisual shown={shown} />}
         />
       </div>
     </section>

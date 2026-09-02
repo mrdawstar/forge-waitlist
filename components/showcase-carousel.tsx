@@ -20,22 +20,22 @@ interface Screen {
 
 const screens: Screen[] = [
   {
-    src: '/screens/paths.jpeg',
-    alt: 'Forge Paths screen with daily guidance',
-    label: 'Paths',
-    caption: 'Borrow the mindset of someone who already did the hard thing.',
+    src: '/screens/forge-home.jpeg',
+    alt: 'The Forge tab: the sword in the stone above today’s list of activities',
+    label: 'Forge',
+    caption: 'Today’s list, and nothing else asking for your attention.',
   },
   {
     src: '/screens/forge-sword.jpeg',
-    alt: 'Forge home screen with the sword in the stone',
-    label: 'Forge',
-    caption: 'Today’s missions — and nothing else asking for your attention.',
+    alt: 'The sword in the stone, ready to be pulled once the day is complete',
+    label: 'The pull',
+    caption: 'Finish everything and the blade comes loose. You still have to drag it out.',
   },
   {
     src: '/screens/blade.jpeg',
-    alt: 'Forge Blade screen tracking twelve weeks of progress',
+    alt: 'The Blade tab: twelve weeks of history, blades earned and the next milestone',
     label: 'Blade',
-    caption: 'Twelve weeks of proof that you kept showing up.',
+    caption: 'Twelve weeks of proof, counted from what you actually did.',
   },
 ]
 

@@ -1,5 +1,6 @@
-import { WaitlistForm } from '@/components/waitlist-form'
+import { AppStoreCta, CtaNote } from '@/components/app-store-cta'
 import { Reveal } from '@/components/reveal'
+import { isLive } from '@/lib/site'
 
 export function FinalCta() {
   return (
@@ -15,7 +16,7 @@ export function FinalCta() {
 
       <div className="relative mx-auto max-w-xl text-center">
         <Reveal>
-          <p className="eyebrow">Early access</p>
+          <p className="eyebrow">{isLive ? 'Available now' : 'Coming soon'}</p>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="mt-5 text-balance text-3xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
@@ -24,15 +25,14 @@ export function FinalCta() {
         </Reveal>
         <Reveal delay={160}>
           <p className="mx-auto mt-5 max-w-md text-pretty leading-relaxed text-muted-foreground">
-            Join the waitlist and be first through the door when Forge arrives
-            on iOS.
+            {isLive
+              ? 'Free, with nothing locked. Keep today, and then keep tomorrow.'
+              : 'Forge is finished and heading to the App Store. Leave your email and you will hear the day it lands.'}
           </p>
         </Reveal>
         <Reveal delay={240}>
-          <WaitlistForm className="mx-auto mt-9 max-w-md" />
-          <p className="mt-4 text-xs tracking-wide text-muted-foreground/70">
-            One email, the day Forge lands on the App Store.
-          </p>
+          <AppStoreCta className="mx-auto mt-9 max-w-md items-center" />
+          <CtaNote className="mt-4" />
         </Reveal>
       </div>
     </section>

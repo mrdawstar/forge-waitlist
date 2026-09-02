@@ -79,8 +79,8 @@ export function WaitlistForm({ className }: WaitlistFormProps) {
         kind: 'done',
         message:
           payload.status === 'already_subscribed'
-            ? 'You’re already on the list. We’ll be in touch.'
-            : 'You’re on the list. We’ll be in touch.',
+            ? 'You’re already on the list. We’ll email you at launch.'
+            : 'You’re on the list. We’ll email you at launch.',
       })
       setEmail('')
     } catch {
@@ -168,7 +168,7 @@ export function WaitlistForm({ className }: WaitlistFormProps) {
               </>
             ) : (
               <>
-                Join the Waitlist
+                Notify me at launch
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </>
             )}
