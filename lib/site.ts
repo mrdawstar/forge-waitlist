@@ -17,8 +17,11 @@ export const site = {
   country: 'Poland',
   /** Minimum age stated in the Terms of Use. */
   minimumAge: 13,
-  /** Last review of the legal pages. Shown on Privacy and Terms. */
+  /** Last review of the Terms of Use. */
   legalUpdated: '6 August 2026',
+  /** Last review of the Privacy Policy. Tracked separately so revising one
+   *  page does not silently re-date the other. */
+  privacyUpdated: '15 September 2026',
 } as const
 
 /**

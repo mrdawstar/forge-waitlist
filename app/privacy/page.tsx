@@ -5,7 +5,7 @@ import { site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Privacy Policy — Forge',
   description:
-    'How Forge handles your data. Forge works fully without an account, and signed out it makes no network requests at all.',
+    'How Forge handles your data. Forge has no accounts and no cloud sync: everything you create stays on your iPhone, and the app transmits no personal data.',
   alternates: { canonical: '/privacy' },
 }
 
@@ -14,18 +14,17 @@ export default function PrivacyPage() {
     <LegalPage
       eyebrow="Legal"
       title="Privacy Policy"
-      intro="Forge is built to need as little of your data as possible. This page explains exactly what it stores, what it never touches, and how to remove everything."
-      updated={site.legalUpdated}
+      intro="Forge is built to need as little of your data as possible. This page explains exactly what it stores, what it never touches, and how to remove it."
+      updated={site.privacyUpdated}
     >
       <div className="callout">
         <p>The short version</p>
         <p>
-          Forge works fully without an account. If you never sign in, your
-          practice stays on your iPhone and the app makes no network requests at
-          all. Signing in is optional and only exists so your practice can be
-          backed up and synced across your devices. Forge contains no
-          advertising, no tracking, no analytics, and this version performs no
-          AI processing of your data.
+          Forge has no accounts and no cloud. There is no sign-in, nothing to
+          register for, and no copy of your practice on any server — everything
+          you create stays on your iPhone. Forge does not collect or transmit
+          personal data, and contains no advertising, no tracking, no analytics
+          and no AI processing.
         </p>
       </div>
 
@@ -38,77 +37,102 @@ export default function PrivacyPage() {
         <a href={`mailto:${site.privacyEmail}`}>{site.privacyEmail}</a>.
       </p>
 
-      <h2>Using Forge without an account</h2>
+      <h2>Forge has no accounts</h2>
       <p>
-        No account is required. The entire app — the day, the sword, your
-        history, blades, milestones, the weekly review, widgets and planning —
-        works signed out.
+        <strong>
+          No account is required to use Forge, and no account can be created.
+        </strong>{' '}
+        There is no sign-in screen, no registration, and no password. Every part
+        of the app — the day, the sword, your history, blades, milestones, the
+        Shape, planning and the widgets — works without one.
       </p>
       <p>
-        In that state everything you create is written only to storage on your
-        own device, and <strong>Forge makes no network requests whatsoever</strong>.
-        Nothing is uploaded, because there is no session to upload it with. If
-        you delete the app, that data goes with it.
+        There is likewise <strong>no cloud syncing</strong>. Forge does not copy
+        your practice to a server, does not move it between your devices, and
+        does not hold a backup of it anywhere. Because there is no account,
+        there is also nothing to sign out of and no account to delete.
       </p>
 
-      <h2>If you choose to sign in</h2>
+      <h2>What Forge stores, and where</h2>
       <p>
-        Signing in is entirely optional and exists for one purpose: backing up
-        your practice and syncing it between your devices. You can sign in with{' '}
-        <strong>Apple</strong> or <strong>Google</strong>. Forge never sees or
-        stores your password for either — Apple and Google handle the sign-in
-        and return a token that identifies you.
+        <strong>Everything Forge keeps is stored locally on your device.</strong>{' '}
+        That is the activities and schedules you set, the record of which days
+        you kept and what you completed, the blades, milestones and chapters you
+        have reached, anything you have written in the app, and your settings.
       </p>
-      <p>Once signed in, the following is stored on Forge&rsquo;s server:</p>
-      <ul>
-        <li>
-          <strong>Your email address and a user ID.</strong> Used to identify
-          your account and attach your data to it. If you use Apple&rsquo;s Hide
-          My Email, Forge only ever receives the relay address Apple gives it.
-        </li>
-        <li>
-          <strong>The practice you create in Forge.</strong> Your activities and
-          their schedules, the record of which days you kept and what you
-          completed, blades and milestones you have reached, chapters and their
-          intentions, any identity statements you have written, and your answers
-          to the weekly review.
-        </li>
-        <li>
-          <strong>Basic device information</strong> — device name, model, iOS
-          version and app version — so that syncing between your devices works
-          and you can tell them apart.
-        </li>
-        <li>
-          <strong>An entitlement record.</strong> A single field reserved for
-          future purchases. Nothing is sold in this version of Forge, so in
-          practice it stays empty.
-        </li>
-      </ul>
       <p>
-        Your content is private to your account. Forge has no feed, no profiles,
-        no comments and no sharing between users — nothing you write is ever
-        shown to another person. Access is enforced per-row on the server, so a
-        request can only ever reach data belonging to the account that signed it.
+        It is held in the app&rsquo;s own storage on the iPhone — shared only
+        with Forge&rsquo;s own widgets, so they can show you the same day — and
+        it stays there. It is not uploaded, not sent to any server operated by
+        Forge, and not shared with anyone.
+      </p>
+      <p>
+        <strong>
+          Forge does not collect or transmit personal user data.
+        </strong>{' '}
+        The privacy manifest shipped inside the app declares no collected data
+        types at all, because there are none to declare.
+      </p>
+      <p>
+        One thing worth knowing: if you have iPhone backups switched on, your
+        own device backup may include Forge&rsquo;s data, in the same way it
+        includes other apps&rsquo;. That backup belongs to you and is governed by
+        your iCloud or computer settings under Apple&rsquo;s terms — Forge has no
+        access to it and no involvement in it.
       </p>
 
       <h2>Apple Health</h2>
       <p>
-        If — and only if — you grant permission, Forge reads{' '}
-        <strong>step count, walking and running distance, and workouts</strong>{' '}
-        from Apple Health, so that activities your phone can already measure tick
-        themselves off.
+        Apple Health access is <strong>entirely optional</strong>. If — and only
+        if — you grant permission, Forge reads{' '}
+        <strong>step count, walking and running distance, and workouts</strong>,
+        so that activities your phone can already measure tick themselves off.
       </p>
       <p>
-        This access is <strong>read-only and permanent in that respect</strong>:
-        Forge never writes anything back to Health. Health readings are never
-        saved to disk, never synced to the server, and never transmitted
-        anywhere. They are read, used to decide whether an activity is done, and
-        discarded. You can refuse or withdraw this permission at any time in
-        iOS Settings, and the rest of Forge is unaffected.
+        The access is <strong>read-only</strong>: Forge never writes anything
+        back to Health.{' '}
+        <strong>
+          Health data is never transmitted anywhere and is never stored on any
+          external server.
+        </strong>{' '}
+        A reading is used to decide whether an activity is complete and then
+        discarded — what the app records is that the activity was done and that
+        the phone was what counted it, never the underlying figure.
+      </p>
+      <p>
+        You can refuse this permission, or withdraw it later in iOS Settings,
+        and the rest of Forge is unaffected.
+      </p>
+
+      <h2>The App Store and purchases</h2>
+      <p>
+        Forge uses Apple&rsquo;s <strong>StoreKit</strong>, which{' '}
+        <strong>
+          may communicate with Apple for App Store-related functionality
+        </strong>{' '}
+        — for example checking or restoring purchase entitlements. That exchange
+        happens between your device and Apple, and is covered by{' '}
+        <a
+          href="https://www.apple.com/legal/privacy/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Apple&rsquo;s privacy policy
+        </a>
+        , not this one.
+      </p>
+      <p>
+        Forge never sees or stores payment details. Nothing is sold in this
+        version of the app, so in practice there is nothing to purchase or
+        restore.
       </p>
 
       <h2>What Forge does not do</h2>
       <ul>
+        <li>
+          <strong>No accounts and no cloud.</strong> Nothing to sign in to,
+          nothing synced, nothing stored on a server.
+        </li>
         <li>
           <strong>No AI processing.</strong> This version of Forge sends nothing
           to any AI or machine-learning service. Planning suggestions are
@@ -127,32 +151,55 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>No selling or sharing.</strong> Your data is never sold,
-          rented, or handed to anyone for their own purposes.
+          rented, or handed to anyone for their own purposes — it never leaves
+          your device for anyone to be given.
         </li>
         <li>
-          <strong>No other third parties.</strong> Beyond sign-in, sync and
-          Apple&rsquo;s own purchase system, the app contacts no other service.
+          <strong>No third-party services in the app.</strong> Beyond
+          Apple&rsquo;s own App Store system, the app contacts no other service.
         </li>
       </ul>
 
+      <h2>Deleting your data</h2>
+      <div className="callout">
+        <p>Deleting the app deletes your data</p>
+        <p>
+          Because everything Forge stores is held on your device,{' '}
+          <strong>
+            deleting the app removes the locally stored app data with it
+          </strong>
+          . There is no server copy to ask for and no account to close.
+        </p>
+        <p>
+          This cannot be undone, so if you want to keep your practice, make sure
+          your own device backup is current before you delete.
+        </p>
+      </div>
+
       <h2>This website</h2>
       <p>
-        This site is hosted by <strong>Vercel</strong>, which processes requests
+        This section covers <strong>{site.url.replace('https://', '')}</strong>,
+        which is separate from the app. The app contacts no server at all; a
+        website, by its nature, does.
+      </p>
+      <p>
+        The site is hosted by <strong>Vercel</strong>, which processes requests
         and, as any web host does, records technical information such as IP
         address and browser type in order to serve the page and keep the service
         secure.
       </p>
       <p>
-        The site uses <strong>Vercel Web Analytics</strong> to count page views.
-        It is aggregate and privacy-oriented: it sets no cookies, does not use
-        your IP address to build a profile of you, and does not follow you to
-        other websites.
+        It uses <strong>Vercel Web Analytics</strong> to count page views. This
+        is aggregate and privacy-oriented: it sets no cookies, does not use your
+        IP address to build a profile of you, and does not follow you to other
+        websites.
       </p>
       <p>
-        If you submit your email address to be told when Forge reaches the App
-        Store, that address is stored so it can be used for that one
-        announcement. It is not used for anything else and is not passed to
-        anyone. Ask at{' '}
+        If you submit your email address on this site to be told when Forge
+        reaches the App Store, that address is stored so it can be used for that
+        one announcement. It is not used for anything else, is not passed to
+        anyone, and has no connection to the app — the app has no accounts and
+        never sees it. Ask at{' '}
         <a href={`mailto:${site.privacyEmail}`}>{site.privacyEmail}</a> and it
         will be removed.
       </p>
@@ -164,54 +211,33 @@ export default function PrivacyPage() {
         why you are not being asked to dismiss a consent banner.
       </p>
 
-      <h2>Where your data is kept, and who processes it</h2>
+      <h2>Who processes data</h2>
       <p>
-        If you sign in, your account and synced practice are stored using{' '}
-        <strong>Supabase</strong>, on infrastructure located in the{' '}
-        <strong>European Union (Ireland)</strong>. The waitlist email addresses
-        collected by this website are stored the same way.
+        <strong>For the app: nobody.</strong> It sends nothing to anyone, so
+        there is no processor to name. For this website and its distribution:
       </p>
-      <p>The only parties involved in operating Forge are:</p>
       <ul>
-        <li>
-          <strong>Supabase</strong> — account, authentication and synced data
-          storage.
-        </li>
         <li>
           <strong>Vercel</strong> — hosting and analytics for this website.
         </li>
         <li>
-          <strong>Apple and Google</strong> — only if you choose to sign in with
-          them, and only for that sign-in.
+          <strong>Supabase</strong> — storage for the launch-notification email
+          addresses submitted on this website, on infrastructure located in the{' '}
+          <strong>European Union (Ireland)</strong>. It is used for nothing else
+          and is not part of the app.
         </li>
         <li>
-          <strong>Apple</strong> — app distribution through the App Store, under
-          Apple&rsquo;s own privacy policy.
+          <strong>Apple</strong> — app distribution and App Store functionality,
+          under Apple&rsquo;s own privacy policy.
         </li>
       </ul>
 
       <h2>How long it is kept</h2>
       <p>
-        Your synced data is kept for as long as your account exists. It is not
-        kept on a schedule or archived elsewhere — when you delete your account,
-        it is deleted.
-      </p>
-
-      <h2>Deleting your data</h2>
-      <div className="callout">
-        <p>Deleting your account, from inside the app</p>
-        <p>
-          Open Forge and go to <strong>Settings → Account → Delete Account</strong>.
-          This deletes your account and everything stored against it on the
-          server. The deletion cascades — no orphaned rows are left behind.
-        </p>
-      </div>
-      <p>
-        Data held only on your device is removed by deleting the app. You can
-        also sign out at any time, which stops syncing while leaving your local
-        practice intact. If you would rather have your account deleted by hand,
-        or cannot reach the app, email{' '}
-        <a href={`mailto:${site.privacyEmail}`}>{site.privacyEmail}</a>.
+        Data in the app is kept on your device for as long as you keep the app,
+        and goes when you delete it. An email address given for the launch
+        announcement is kept until the announcement has been sent, or until you
+        ask for it to be removed — whichever comes first.
       </p>
 
       <h2>Your rights</h2>
@@ -224,10 +250,14 @@ export default function PrivacyPage() {
         <a href={`mailto:${site.privacyEmail}`}>{site.privacyEmail}</a>.
       </p>
       <p>
-        Where Forge relies on a legal basis: account and sync are provided to
-        perform the service you asked for; keeping the service secure and
-        understanding rough website traffic rests on legitimate interests; Apple
-        Health access rests on the permission you grant and can withdraw.
+        In practice there is very little to exercise those rights against: the
+        app holds your data on your own device, where it is already yours and
+        under your control, and no copy is held anywhere else. Where a legal
+        basis is relied on, it is this: submitting your email for the launch
+        announcement is your consent, which you may withdraw at any time; hosting
+        the site securely and counting page views rests on legitimate interests;
+        and Apple Health access rests on the permission you grant and can
+        withdraw.
       </p>
       <p>
         If you believe your data has been mishandled you may complain to your
@@ -248,8 +278,8 @@ export default function PrivacyPage() {
       <p>
         If Forge changes what it does with data, this page changes first, and the
         date at the top will say when. Significant changes — in particular any
-        introduction of AI processing — will be described plainly rather than
-        folded quietly into a paragraph.
+        introduction of accounts, syncing or AI processing — will be described
+        plainly rather than folded quietly into a paragraph.
       </p>
 
       <h2>Contact</h2>
