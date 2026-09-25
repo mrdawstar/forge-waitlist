@@ -1,7 +1,7 @@
 {
   "name": "Forge",
   "short_name": "Forge",
-  "description": "Build discipline through daily missions, habits and AI guidance.",
+  "description": "Build yourself through daily action. Plan your day, earn the pull, and see your progress.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050505",

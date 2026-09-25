@@ -6,7 +6,7 @@ import { site } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Support — Forge',
   description:
-    'Need help with Forge? Write to the person who made it. Technical problems, sign-in, sync, feedback and questions.',
+    'Need help with Forge? Write to the person who made it. Technical problems, activities, progress, privacy and feedback.',
   alternates: { canonical: '/support' },
 }
 
@@ -42,21 +42,17 @@ export default function SupportPage() {
           you did not expect.
         </li>
         <li>
-          <strong>Sign-in trouble.</strong> Signing in with Apple or Google is
-          not working, or you cannot get back into your account.
+          <strong>Your practice and progress.</strong> Activities, challenges,
+          streaks, blades, reviews, or understanding your record.
         </li>
         <li>
-          <strong>Sync trouble.</strong> Your practice is not appearing on
-          another device, or two devices disagree about what you did.
-        </li>
-        <li>
-          <strong>Deleting your account or your data.</strong> If you cannot
-          reach the in-app option, ask here and it will be done for you.
+          <strong>Privacy and data.</strong> Local storage, anonymous analytics,
+          or a question about deleting data.
         </li>
         <li>
           <strong>Feedback and requests.</strong> What is missing, what is
-          annoying, what you wish it did instead. This genuinely shapes what gets
-          built.
+          annoying, what you wish it did instead. This genuinely shapes what
+          gets built.
         </li>
         <li>
           <strong>Anything else about Forge.</strong> Questions about how a part
@@ -64,44 +60,49 @@ export default function SupportPage() {
         </li>
       </ul>
       <p>
-        Including your device model and iOS version, and what you were doing just
-        before the problem, usually turns two exchanges into one.
+        Including your device model and iOS version, and what you were doing
+        just before the problem, usually turns two exchanges into one.
       </p>
 
       <h2>Quick answers</h2>
 
       <h3>Do I need an account?</h3>
       <p>
-        No. Forge works fully without one, and signed out it makes no network
-        requests at all. Signing in is optional and exists only to back up and
-        sync your practice across devices.
+        No. Forge has no accounts or cloud sync. Your practice is stored on your
+        iPhone.
       </p>
-
-      <h3>How do I delete my account?</h3>
+      <h3>How do I turn off analytics?</h3>
       <p>
-        In the app: <strong>Settings → Account → Delete Account</strong>. That
-        removes your account and the data stored against it. Data held only on
-        your device is removed by deleting the app.
+        Open <strong>Settings → Privacy → Share anonymous usage</strong> in
+        Forge and turn it off. Your app and local progress keep working.
+      </p>
+      <h3>How do I delete my data?</h3>
+      <p>
+        Deleting the app removes its local data. Device backups are managed
+        through your Apple settings. See the{' '}
+        <a href="/privacy">Privacy Policy</a> for how anonymous analytics are
+        handled separately.
       </p>
 
       <h3>Why is Forge asking for Apple Health?</h3>
       <p>
         Only so activities your phone already measures — steps, distance,
         workouts — can tick themselves off. Access is read-only, nothing is ever
-        written back, and the readings are never stored or transmitted. Declining
-        it leaves the rest of the app working normally.
+        written back, and the readings are never stored or transmitted.
+        Declining it leaves the rest of the app working normally.
       </p>
 
       <h3>Does Forge cost anything?</h3>
       <p>
-        No. There is no subscription and nothing is locked. See the{' '}
-        <a href="/terms">Terms of Use</a>.
+        Check the{' '}
+        <a href="https://apps.apple.com/app/id6797894749">App Store listing</a>{' '}
+        for current pricing and any purchase details.
       </p>
 
       <h3>What happens to my data?</h3>
       <p>
-        The <a href="/privacy">Privacy Policy</a> sets out exactly what is stored
-        and what is never touched.
+        The <a href="/privacy">Privacy Policy</a> sets out exactly what is
+        stored and what is never touched.
       </p>
 
       <h2>Response time</h2>

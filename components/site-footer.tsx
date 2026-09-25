@@ -1,43 +1,31 @@
 import Link from 'next/link'
+import { Sword, ArrowUpRight } from 'lucide-react'
 import { legalNav, site } from '@/lib/site'
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto max-w-5xl px-6 pb-14 pt-10">
-      <div className="hairline mb-10" />
-
-      <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-        <div className="text-center sm:text-left">
-          <Link
-            href="/"
-            className="font-mono text-xs tracking-[0.3em] text-foreground/80 transition-colors hover:text-foreground"
-          >
-            FORGE
-          </Link>
-          <p className="mt-3 max-w-xs text-pretty text-xs leading-relaxed text-muted-foreground/70">
-            {site.tagline}. An iOS app by {site.owner}.
-          </p>
-        </div>
-
-        <nav aria-label="Footer">
-          <ul className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-            {legalNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+    <footer className="site-footer shell">
+      <div className="footer-top">
+        <Link href="/" className="wordmark">
+          <Sword size={23} strokeWidth={1.3} aria-hidden="true" />
+          FORGE
+        </Link>
+        <p>Built with intention. Used with purpose.</p>
+        <a href="/download" className="text-link">
+          Get Forge <ArrowUpRight size={15} aria-hidden="true" />
+        </a>
       </div>
-
-      <p className="mt-10 text-center text-xs text-muted-foreground/60 sm:text-left">
-        {site.copyright}
-      </p>
+      <div className="footer-bottom">
+        <p>{site.copyright}</p>
+        <nav aria-label="Footer">
+          {legalNav.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <span>Build Yourself.</span>
+      </div>
     </footer>
   )
 }

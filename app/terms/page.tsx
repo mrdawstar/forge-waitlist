@@ -25,9 +25,9 @@ export default function TermsPage() {
         &ldquo;you&rdquo; means the person using them.
       </p>
       <p>
-        By downloading, opening or using Forge, you accept these terms. If you do
-        not accept them, do not use Forge. Your use of the app is also subject to
-        Apple&rsquo;s standard App Store terms.
+        By downloading, opening or using Forge, you accept these terms. If you
+        do not accept them, do not use Forge. Your use of the app is also
+        subject to Apple&rsquo;s standard App Store terms.
       </p>
 
       <h2>2. Who may use Forge</h2>
@@ -79,46 +79,37 @@ export default function TermsPage() {
       <h2>4. Your responsibility</h2>
       <p>
         You are responsible for what you put into Forge and for how you use it.
-        Keep your Apple or Google sign-in secure — anyone with access to it has
-        access to your Forge account.
+        Keep your device secure — anyone who can access it may be able to see
+        your local practice.
       </p>
 
-      <h2>5. Accounts, if you create one</h2>
+      <h2>5. No accounts or cloud sync</h2>
       <p>
-        No account is required; Forge works fully without one. If you choose to
-        sign in with Apple or Google, it is so your practice can be backed up and
-        synced across your devices.
-      </p>
-      <p>
-        You can delete your account at any time in{' '}
-        <strong>Settings → Account → Delete Account</strong>, which removes your
-        account and the data stored against it. Access may be suspended or ended
-        if an account is used to attack, abuse or disrupt the service. How your
-        data is handled is described in the{' '}
+        Forge works without an account, and no account can be created. Your
+        practice is stored on your device and is not synced by Forge. Anonymous
+        usage analytics are described in the{' '}
         <a href="/privacy">Privacy Policy</a>.
       </p>
 
       <h2>6. What you create stays yours</h2>
       <p>
         Your activities, notes, intentions, review answers and history are{' '}
-        <strong>yours</strong>. No ownership of them is claimed. They are private
-        to your account and are never shown to other users — Forge has no feed,
-        profiles, comments or sharing between users.
+        <strong>yours</strong>. No ownership of them is claimed. They are
+        private to your device and are never shown to other users — Forge has no
+        feed, profiles, comments or sharing between users.
       </p>
       <p>
-        The only permission taken is the strictly technical one needed to run the
-        service you asked for: if you sign in, storing and transmitting your
-        content between your own devices. Nothing you write is used for any other
-        purpose.
+        Your personal content is processed locally to provide the features you
+        use. It is not sent to analytics.
       </p>
 
       <h2>7. Price</h2>
       <p>
         Forge is currently <strong>free</strong>. There is no subscription, no
-        in-app purchase and nothing locked behind a payment. If paid features are
-        ever introduced, they will be described clearly before you are asked for
-        anything, and what you already have will not be taken away and sold back
-        to you.
+        in-app purchase and nothing locked behind a payment. If paid features
+        are ever introduced, they will be described clearly before you are asked
+        for anything, and what you already have will not be taken away and sold
+        back to you.
       </p>
 
       <h2>8. Forge belongs to its author</h2>
@@ -134,24 +125,20 @@ export default function TermsPage() {
       <p>
         Forge is offered as it is, and as it happens to be available. It may be
         updated, changed, interrupted for maintenance, or discontinued.
-        Individual features may be added, altered or removed as the app develops.
+        Individual features may be added, altered or removed as the app
+        develops.
       </p>
       <p>
-        The local part of Forge is designed to keep working without a network. If
-        the sync service is unavailable, the app keeps functioning on your device
-        and catches up later.
-      </p>
-      <p>
-        Sync depends on services provided by others. Their availability is not
-        something one developer controls.
+        Your local practice is designed to work without a network. App Store
+        functionality and anonymous analytics depend on their respective
+        providers.
       </p>
 
       <h2>10. Back-ups</h2>
       <p>
         Please keep your own back-ups of anything you would be upset to lose,
-        for example through your iPhone&rsquo;s standard device back-up. Signing
-        in provides a copy of your practice on the server, but no back-up
-        arrangement is guaranteed to be complete or permanently available.
+        for example through your iPhone&rsquo;s standard device back-up. Forge
+        does not keep a server backup of your practice.
       </p>
 
       <h2>11. No warranty</h2>
@@ -184,18 +171,17 @@ export default function TermsPage() {
 
       <h2>13. Ending these terms</h2>
       <p>
-        You may stop using Forge at any time by deleting the app, and delete your
-        account as described in section 5. Sections that by their nature should
-        survive — ownership, disclaimers and limits on liability — continue to
-        apply afterwards.
+        You may stop using Forge at any time by deleting the app. Sections that
+        by their nature should survive — ownership, disclaimers and limits on
+        liability — continue to apply afterwards.
       </p>
 
       <h2>14. Changes to these terms</h2>
       <p>
         These terms may be updated as Forge changes. The date at the top of this
-        page shows when they were last revised, and continuing to use Forge after
-        a change means you accept the revised terms. Material changes will be
-        made obvious rather than slipped in.
+        page shows when they were last revised, and continuing to use Forge
+        after a change means you accept the revised terms. Material changes will
+        be made obvious rather than slipped in.
       </p>
 
       <h2>15. Governing law</h2>

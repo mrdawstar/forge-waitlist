@@ -14,17 +14,18 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
 })
 
-const title = 'Forge — A day you earn, not one you tick'
+const title = 'Forge — Build Yourself'
 const description =
-  'Forge is an iOS app for keeping a daily practice. Finish what the day asked of you, then pull the sword from the stone. No score, no subscription, nothing locked.'
+  'Build discipline through daily action. Plan your day, complete your activities, pull the sword and see who you are becoming. Download Forge on the App Store.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? site.url),
   title,
   description,
   applicationName: 'Forge',
-  generator: 'v0.app',
   manifest: '/manifest.json',
+  appleWebApp: { title: 'Forge' },
+  itunes: { appId: '6797894749' },
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
@@ -60,14 +61,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark bg-background ${geistSans.variable} ${geistMono.variable}`}>
-      <head>
-        {/* Scroll reveals are driven by IntersectionObserver; without scripts
-            the content must simply be there. */}
-        <noscript>
-          <style>{`[data-reveal],.animate-rise{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}`}</style>
-        </noscript>
-      </head>
+    <html
+      lang="en"
+      className={`dark bg-background ${geistSans.variable} ${geistMono.variable}`}
+    >
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
