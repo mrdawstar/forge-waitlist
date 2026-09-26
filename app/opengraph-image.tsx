@@ -47,7 +47,7 @@ export default async function OpenGraphImage() {
             <span style={{ color: '#9ea1aa' }}>Yourself.</span>
           </div>
           <div style={{ marginTop: 38, color: '#b3b7c0', fontSize: 23 }}>
-            Download on the App Store
+            The discipline app for iPhone
           </div>
         </div>
         {/* ImageResponse uses a plain image element, not next/image. */}

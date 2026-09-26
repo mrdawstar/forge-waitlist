@@ -19,7 +19,7 @@ Polish storefront: https://apps.apple.com/pl/app/forge-build-yourself/id67978947
 
 Apple's PL and US lookup endpoints returned userRatingCount: 0 and averageUserRating: 0 on the verification date. The public PL page stated that there were not enough ratings/reviews for an overview; the public PL and US customer review feeds returned no entries. These results do not establish that no reviews exist in any storefront.
 
-The user supplied review text, but requested App Store verification. It could not be independently matched to a public review. The site therefore links to real App Store reviews without publishing unsupported scores, counts, quotes, or invented reviewer identities. Replace this fallback only with verified data and record its source, storefront and date.
+The user supplied review text, but requested App Store verification. It could not be independently matched to a public review. The conversion-focused revision uses product proof instead of a review section, without publishing unsupported scores, counts, quotes, or invented reviewer identities. Replace this fallback only with verified data and record its source, storefront and date.
 
 ## Privacy
 

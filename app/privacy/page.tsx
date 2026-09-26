@@ -194,8 +194,12 @@ export default function PrivacyPage() {
         <strong>{site.url.replace('https://', '')}</strong> is hosted by Vercel.
         Hosting involves processing technical request information, such as IP
         address and browser details, to deliver and secure the site. The website
-        uses Vercel Web Analytics for aggregate page-view information, without
-        analytics cookies or cross-site advertising tracking.
+        uses Vercel Web Analytics for aggregate page views and interactions,
+        such as App Store clicks and completion of the sample-day preview,
+        without analytics cookies or cross-site advertising tracking. Preview
+        events include action counts and input method, not the labels of your
+        chosen actions or personal text. Your sample day is not saved and resets
+        when you reload the page.
       </p>
       <p>
         This website no longer collects email addresses through a form. If you

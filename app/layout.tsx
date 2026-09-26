@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
 })
 
-const title = 'Forge — Build Yourself'
+const title = 'Forge — Build Yourself. The discipline app for iPhone.'
 const description =
-  'Build discipline through daily action. Plan your day, complete your activities, pull the sword and see who you are becoming. Download Forge on the App Store.'
+  'Forge is a discipline app for iPhone. Plan your day, do the work, and pull the sword once the day is earned. Free on the App Store, no account needed.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? site.url),
