@@ -1,20 +1,16 @@
 'use client'
 
-import Image from 'next/image'
 import { APP_STORE_URL } from '@/lib/site'
 import { trackConversion, type ConversionEvent } from '@/lib/conversion-events'
 import { cn } from '@/lib/utils'
 
 type DownloadEvent = Extract<ConversionEvent, `${string}_app_store_click`>
 
-/** Apple's original artwork, unmodified. The container supplies clear space. */
-export function AppStoreCta({
-  className,
-  event,
-}: {
-  className?: string
-  event: DownloadEvent
-}) {
+/**
+ * Apple's badge artwork, unmodified and never animated. The anchor supplies
+ * the required clear space (a quarter of the badge height) and hover/press states.
+ */
+export function AppStoreCta({ className, event }: { className?: string; event: DownloadEvent }) {
   return (
     <a
       href={APP_STORE_URL}
@@ -23,35 +19,33 @@ export function AppStoreCta({
       onClick={() => trackConversion(event)}
       data-conversion={event}
     >
-      <Image
-        src="/badges/download-on-the-app-store.svg"
-        alt="Download on the App Store"
-        width={180}
-        height={60}
-        unoptimized
-      />
+      {/* eslint-disable-next-line @next/next/no-img-element -- Apple's vector artwork, served as supplied */}
+      <img src="/badges/download-on-the-app-store.svg" alt="" width={150} height={50} />
     </a>
   )
 }
 
+/** A plain text action where a second badge would crowd the layout. */
 export function DownloadLink({
   event,
   className,
   children = 'Get Forge',
+  label,
 }: {
   event: DownloadEvent
   className?: string
   children?: React.ReactNode
+  label?: string
 }) {
   return (
     <a
       href={APP_STORE_URL}
       onClick={() => trackConversion(event)}
       data-conversion={event}
+      aria-label={label}
       className={cn('download-link', className)}
     >
       {children}
-      <span aria-hidden="true">↗</span>
     </a>
   )
 }

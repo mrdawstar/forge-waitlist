@@ -10,7 +10,7 @@ export const site = {
   country: 'Poland',
   minimumAge: 13,
   legalUpdated: '25 September 2026',
-  privacyUpdated: '26 September 2026',
+  privacyUpdated: '27 September 2026',
 } as const
 
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6797894749'

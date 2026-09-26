@@ -1,40 +1,47 @@
 import { AppStoreCta } from '@/components/app-store-cta'
-import { PhoneMockup } from '@/components/phone-mockup'
+import { IPhone, Screenshot } from '@/components/iphone'
 
 export function Hero() {
   return (
-    <section className="hero shell" aria-labelledby="hero-title">
-      <div className="hero-copy">
-        <p className="eyebrow hero-category">THE DAILY DISCIPLINE APP</p>
-        <h1 id="hero-title">
-          Build <span>yourself.</span>
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="shell hero-copy">
+        <h1 id="hero-title" className="hero-title">
+          <span className="line"><span>Build</span></span>{' '}
+          <span className="line"><span>yourself.</span></span>
         </h1>
-        <p className="hero-description">
-          Plan your day. Complete what matters.
-          <br className="desktop-break" /> Pull the sword and earn the day.
+        <p className="hero-lede">
+          The discipline app for iPhone. Plan your day, do the work, and pull the sword once the day is earned.
         </p>
-        <div className="hero-conversion">
+        <div className="hero-cta">
           <AppStoreCta event="hero_app_store_click" />
-          <p>Free on iPhone. No account needed.</p>
+          <p className="hero-note">Free on iPhone · No account needed</p>
         </div>
-        <a className="hero-demo-link" href="#try-forge">
-          Try the ritual <span aria-hidden="true">↓</span>
-        </a>
       </div>
-      <figure className="hero-product">
-        <div className="hero-light" aria-hidden="true" />
-        <div className="hero-screen">
-          <PhoneMockup
+
+      <div className="hero-devices">
+        <IPhone className="hero-phone hero-phone-side hero-phone-left">
+          <Screenshot
+            src="/screens/activity-record.webp"
+            alt="Forge record: a chapter in progress and twelve weeks of kept days"
+            sizes="(max-width: 700px) 50vw, 250px"
+          />
+        </IPhone>
+        <IPhone className="hero-phone hero-phone-main">
+          <Screenshot
             src="/screens/forge-today.webp"
-            alt="The real Forge Today screen: your sword, daily streak, day and week planning, and activity panel"
+            alt="Forge Today: the sword, your day count, Today and Week planning, and a daily challenge"
+            sizes="(max-width: 700px) 64vw, 310px"
             priority
           />
-        </div>
-        <figcaption>
-          <span>PLAN. DO. EARN.</span>
-          <span>FORGE ON IPHONE</span>
-        </figcaption>
-      </figure>
+        </IPhone>
+        <IPhone className="hero-phone hero-phone-side hero-phone-right">
+          <Screenshot
+            src="/screens/becoming.webp"
+            alt="Forge Becoming: six areas of growth scored from your last four weeks"
+            sizes="(max-width: 700px) 50vw, 250px"
+          />
+        </IPhone>
+      </div>
     </section>
   )
 }

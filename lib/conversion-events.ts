@@ -1,22 +1,19 @@
 import { track } from '@vercel/analytics'
 
+/** Every App Store link is tagged with where on the page it was clicked. */
 export type ConversionEvent =
-  | 'hero_app_store_click'
   | 'header_app_store_click'
-  | 'demo_started'
-  | 'demo_action_completed'
-  | 'demo_sword_pulled'
-  | 'demo_app_store_click'
+  | 'hero_app_store_click'
+  | 'why_app_store_click'
   | 'final_app_store_click'
   | 'footer_app_store_click'
+  | 'tour_step_viewed'
 
 export type ConversionProperties = {
-  action_count?: number
-  completed_count?: number
-  input?: 'pointer' | 'keyboard' | 'button'
+  step?: number
 }
 
-/** Only aggregate counts and input method: never action labels or personal text. */
+/** Placement and step index only: never personal data. */
 export function trackConversion(
   name: ConversionEvent,
   properties: ConversionProperties = {},

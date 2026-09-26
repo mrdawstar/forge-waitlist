@@ -195,11 +195,10 @@ export default function PrivacyPage() {
         Hosting involves processing technical request information, such as IP
         address and browser details, to deliver and secure the site. The website
         uses Vercel Web Analytics for aggregate page views and interactions,
-        such as App Store clicks and completion of the sample-day preview,
-        without analytics cookies or cross-site advertising tracking. Preview
-        events include action counts and input method, not the labels of your
-        chosen actions or personal text. Your sample day is not saved and resets
-        when you reload the page.
+        such as which App Store link was clicked and how far the product tour
+        was scrolled, without analytics cookies or cross-site advertising
+        tracking. These events contain only the link placement or tour step,
+        never personal text.
       </p>
       <p>
         This website no longer collects email addresses through a form. If you
