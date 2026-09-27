@@ -4,7 +4,7 @@ import { IPhone, Screenshot } from '@/components/iphone'
 import { Reveal } from '@/components/reveal'
 
 const points = [
-  { title: 'The day has a finish.', text: 'The sword only comes out once the work is done.' },
+  { title: 'The day has a ', accent: 'finish.', text: 'The sword only comes out once the work is done.' },
   { title: 'No XP. No leaderboards.', text: 'Just the days you actually kept.' },
   { title: 'Yours alone.', text: 'No account. Your activities stay on your iPhone.', link: true },
 ]
@@ -35,7 +35,7 @@ export function WhyForge() {
           <ul className="why-points">
             {points.map((point, index) => (
               <Reveal as="li" key={point.title} delay={index * 90}>
-                <h3>{point.title}</h3>
+                <h3>{point.title}{point.accent && <span className="text-accent">{point.accent}</span>}</h3>
                 <p>
                   {point.text}
                   {point.link && (

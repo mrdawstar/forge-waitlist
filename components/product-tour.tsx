@@ -7,28 +7,32 @@ import { trackConversion } from '@/lib/conversion-events'
 const steps = [
   {
     name: 'Plan',
-    title: 'Give the day a direction.',
+    title: 'Give the day a ',
+    accent: 'direction.',
     text: 'Choose what matters and place it in your day or your week.',
     src: '/screens/forge-today.webp',
     alt: 'Forge Today with Today and Week planning and a daily challenge',
   },
   {
     name: 'Earn',
-    title: 'Every day you keep is a strike.',
+    title: 'Every day you keep is a ',
+    accent: 'strike.',
     text: 'Finish the plan, pull the sword, and your blade is reforged.',
     src: '/screens/blade-progress.webp',
     alt: 'Forge Blade: the Edged Sword, with three days to go until the Proven Sword',
   },
   {
     name: 'Record',
-    title: 'Your actions leave a record.',
+    title: 'Your actions leave a ',
+    accent: 'record.',
     text: 'Twelve weeks of kept days, and chapters with a purpose.',
     src: '/screens/activity-record.webp',
     alt: 'Forge record: the chapter Creating yourself and a twelve-week grid of kept days',
   },
   {
     name: 'Become',
-    title: 'See who you’re becoming.',
+    title: 'See who you’re ',
+    accent: 'becoming.',
     text: 'Six parts of you, scored from your last four weeks.',
     src: '/screens/becoming.webp',
     alt: 'Forge Becoming: a radar chart of six areas of growth with an overall score of 57',
@@ -105,7 +109,7 @@ export function ProductTour() {
                     <span>0{index + 1}</span>
                     {step.name}
                   </p>
-                  <h3>{step.title}</h3>
+                  <h3>{step.title}<span className="text-accent">{step.accent}</span></h3>
                   <p className="tour-text">{step.text}</p>
                 </li>
               ))}

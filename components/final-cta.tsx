@@ -11,7 +11,7 @@ export function FinalCta() {
           <span className="line"><span>Tomorrow is another</span></span>{' '}
           <span className="line" style={{ '--line': 1 } as React.CSSProperties}><span>day to keep.</span></span>
         </h2>
-        <p className="final-lede">Plan it tonight. Earn it tomorrow.</p>
+        <p className="final-lede">Plan it tonight. <span className="text-accent">Earn</span> it tomorrow.</p>
         <div className="final-actions">
           <AppStoreCta event="final_app_store_click" />
           <div className="final-qr">
