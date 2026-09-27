@@ -379,7 +379,8 @@ button { cursor: pointer; }
 .tour-phone img[data-active=true] { opacity: 1; transform: none; }
 
 /* ── Why Forge ── */
-.why { padding-block: clamp(96px, 12vw, 170px); border-top: 1px solid var(--line); background: linear-gradient(#111317, var(--ink) 60%); }
+/* The ambient light fades to transparent at both section edges, continuing the page background. */
+.why { padding-block: clamp(96px, 12vw, 170px); background: radial-gradient(ellipse 75% 48% at 35% 50%, #1a1e2480, transparent 100%); }
 .why-grid { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: 'device head' 'device body'; align-content: center; column-gap: clamp(56px, 9vw, 130px); }
 .why-head { grid-area: head; align-self: end; }
 .why-head h2 { margin-top: 20px; font-size: clamp(40px, 5.4vw, 76px); font-weight: 600; line-height: 1; letter-spacing: -.05em; }

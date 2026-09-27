@@ -24,8 +24,8 @@ export function WhyForge() {
         <div className="why-device">
           <IPhone className="why-phone">
             <Screenshot
-              src="/screens/blade-collection.webp"
-              alt="Forge blade collection: six blades earned from Rough to Edged, and Proven locked until 60 days"
+              src="/screens/forge-earned-day.webp"
+              alt="Forge Today: a four-day streak, sword in stone, and two of four daily activities completed"
               sizes="(max-width: 860px) 62vw, 300px"
             />
           </IPhone>
