@@ -14,7 +14,7 @@ export function Hero() {
         </p>
         <div className="hero-cta">
           <AppStoreCta event="hero_app_store_click" />
-          <p className="hero-note">Free on iPhone · No account needed</p>
+          <p className="hero-note">Free download · Optional Forge Pro</p>
         </div>
       </div>
 
@@ -22,7 +22,7 @@ export function Hero() {
         <IPhone className="hero-phone hero-phone-side hero-phone-left">
           <Screenshot
             src="/screens/activity-record.webp"
-            alt="Forge record: a chapter in progress and twelve weeks of kept days"
+            alt="Forge Blade: a twelve-week activity record, analytics and personal milestones"
             sizes="(max-width: 700px) 50vw, 250px"
           />
         </IPhone>
@@ -37,7 +37,7 @@ export function Hero() {
         <IPhone className="hero-phone hero-phone-side hero-phone-right">
           <Screenshot
             src="/screens/becoming.webp"
-            alt="Forge Becoming: six areas of growth scored from your last four weeks"
+            alt="Forge Becoming: six areas of growth and an overall score of 89"
             sizes="(max-width: 700px) 50vw, 250px"
           />
         </IPhone>

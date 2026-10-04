@@ -69,10 +69,11 @@ export default function TermsPage() {
           contact your local emergency services.
         </p>
         <p>
-          You decide what activities you set yourself. Suggestions Forge makes
-          are arithmetic over your own record, and you are responsible for
-          judging whether they are sensible and safe for you. Any physical
-          activity you choose to do is undertaken at your own risk.
+          You decide what activities you set yourself. Forge offers suggestions
+          based on your record, including optional AI-generated suggestions. You
+          are responsible for judging whether they are sensible and safe for
+          you. Any physical activity you choose to do is undertaken at your own
+          risk.
         </p>
       </div>
 
@@ -87,29 +88,33 @@ export default function TermsPage() {
       <p>
         Forge works without an account, and no account can be created. Your
         practice is stored on your device and is not synced by Forge. Anonymous
-        usage analytics are described in the{' '}
+        usage analytics and optional AI processing are described in the{' '}
         <a href="/privacy">Privacy Policy</a>.
       </p>
 
       <h2>6. What you create stays yours</h2>
       <p>
         Your activities, notes, intentions, review answers and history are{' '}
-        <strong>yours</strong>. No ownership of them is claimed. They are
-        private to your device and are never shown to other users — Forge has no
-        feed, profiles, comments or sharing between users.
+        <strong>yours</strong>. No ownership of them is claimed. They are stored
+        on your device and are never shown to other users — Forge has no feed,
+        profiles, comments or sharing between users.
       </p>
       <p>
-        Your personal content is processed locally to provide the features you
-        use. It is not sent to analytics.
+        Your personal content is processed locally, except for the context sent
+        with your permission when you request an AI feature. You can also export
+        a backup to a destination you choose. Personal content is not sent to
+        analytics. See the <a href="/privacy">Privacy Policy</a> for details.
       </p>
 
       <h2>7. Price</h2>
       <p>
-        Forge is currently <strong>free</strong>. There is no subscription, no
-        in-app purchase and nothing locked behind a payment. If paid features
-        are ever introduced, they will be described clearly before you are asked
-        for anything, and what you already have will not be taken away and sold
-        back to you.
+        Forge is free to download. Optional <strong>Forge Pro</strong> is sold
+        through the App Store as an annual subscription, a monthly subscription,
+        or a one-time Lifetime purchase. Eligible accounts may receive a free
+        trial with the annual subscription. Prices, trial eligibility and
+        purchase terms are shown before you confirm a purchase. Apple handles
+        payments and subscription management. AI features require Forge Pro,
+        including for earlier users.
       </p>
 
       <h2>8. Forge belongs to its author</h2>
@@ -130,15 +135,17 @@ export default function TermsPage() {
       </p>
       <p>
         Your local practice is designed to work without a network. App Store
-        functionality and anonymous analytics depend on their respective
-        providers.
+        functionality, anonymous analytics and optional AI features depend on
+        network access and their respective providers.
       </p>
 
       <h2>10. Back-ups</h2>
       <p>
         Please keep your own back-ups of anything you would be upset to lose,
-        for example through your iPhone&rsquo;s standard device back-up. Forge
-        does not keep a server backup of your practice.
+        using Settings → Your Data → Export Backup or your iPhone&rsquo;s
+        standard device back-up. Keep exported files private; importing a backup
+        replaces your local record after confirmation. Forge does not keep a
+        server backup of your practice.
       </p>
 
       <h2>11. No warranty</h2>
@@ -165,8 +172,8 @@ export default function TermsPage() {
         allow to be limited — it is not excluded.
       </p>
       <p>
-        Because Forge is currently provided free of charge, any liability that
-        does apply is limited to the amount you have paid for it.
+        Subject to the exceptions and mandatory rights above, any liability that
+        does apply is limited to the amount you have paid for Forge.
       </p>
 
       <h2>13. Ending these terms</h2>

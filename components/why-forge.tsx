@@ -6,7 +6,7 @@ import { Reveal } from '@/components/reveal'
 const points = [
   { title: 'The day has a ', accent: 'finish.', text: 'The sword only comes out once the work is done.' },
   { title: 'No XP. No leaderboards.', text: 'Just the days you actually kept.' },
-  { title: 'Yours alone.', text: 'No account. Your activities stay on your iPhone.', link: true },
+  { title: 'Yours alone.', text: 'No account. Your record stays on your iPhone. Optional AI shares context only with your permission.', link: true },
 ]
 
 export function WhyForge() {
@@ -25,7 +25,7 @@ export function WhyForge() {
           <IPhone className="why-phone">
             <Screenshot
               src="/screens/forge-earned-day.webp"
-              alt="Forge Today: a four-day streak, sword in stone, and two of four daily activities completed"
+              alt="Forge Today: the sword pulled free after earning the day, with 507 days on the record"
               sizes="(max-width: 860px) 62vw, 300px"
             />
           </IPhone>

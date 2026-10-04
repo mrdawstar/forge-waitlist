@@ -364,7 +364,7 @@ button { cursor: pointer; }
 .tour { position: relative; height: calc(100svh + var(--steps) * 75svh); }
 .tour-sticky { position: sticky; top: 0; display: flex; align-items: center; height: 100svh; overflow: hidden; }
 .tour-grid { display: grid; grid-template-columns: minmax(0, 520px) auto; justify-content: center; align-items: center; column-gap: clamp(48px, 9vw, 140px); padding-top: 68px; }
-.tour-copy { max-width: 500px; }
+.tour-copy { width: 100%; min-width: 0; max-width: 500px; }
 .tour-steps { display: grid; margin-top: 30px; list-style: none; }
 .tour-step { grid-area: 1 / 1; transition: opacity .35s var(--ease-out-soft), transform .65s var(--ease-out-expo); }
 .tour-step[data-state=next] { opacity: 0; transform: translateY(18px); pointer-events: none; }
@@ -373,9 +373,9 @@ button { cursor: pointer; }
 .tour-name span { color: var(--text-3); font-family: var(--font-geist-mono), monospace; font-size: 13px; }
 .tour-step h3 { margin: 16px 0 18px; font-size: clamp(36px, 4.6vw, 62px); font-weight: 600; line-height: 1.02; letter-spacing: -.045em; }
 .tour-text { max-width: 30ch; color: var(--text-2); font-size: 19px; line-height: 1.5; }
-.tour-rail { display: flex; gap: 4px; margin-top: 36px; }
-.tour-rail button { display: flex; align-items: center; height: 44px; width: 60px; justify-content: center; padding-inline: 2px; }
-.tour-rail button span { display: block; width: 56px; height: 3px; border-radius: 3px; background: var(--line-strong); transform: scaleX(.57); transition: transform .5s var(--ease-out-expo), background-color .3s; }
+.tour-rail { display: flex; max-width: 100%; gap: 4px; margin-top: 36px; }
+.tour-rail button { display: flex; flex: 1 1 60px; align-items: center; height: 44px; width: 60px; min-width: 0; justify-content: center; padding-inline: 2px; }
+.tour-rail button span { display: block; width: 100%; max-width: 56px; height: 3px; border-radius: 3px; background: var(--line-strong); transform: scaleX(.57); transition: transform .5s var(--ease-out-expo), background-color .3s; }
 .tour-rail button:hover span { background: #ffffff55; }
 .tour-rail button[aria-current] span { transform: scaleX(1); background: var(--forge-blue-solid); }
 .tour-device { position: relative; display: flex; justify-content: center; }

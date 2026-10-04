@@ -9,8 +9,8 @@ export const site = {
   privacyEmail: 'forge.discipline.daily@gmail.com',
   country: 'Poland',
   minimumAge: 13,
-  legalUpdated: '25 September 2026',
-  privacyUpdated: '27 September 2026',
+  legalUpdated: '4 October 2026',
+  privacyUpdated: '4 October 2026',
 } as const
 
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6797894749'

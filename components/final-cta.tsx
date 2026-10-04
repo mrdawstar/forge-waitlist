@@ -20,7 +20,7 @@ export function FinalCta() {
             <p>On a computer? Scan with your iPhone camera.</p>
           </div>
         </div>
-        <p className="final-note">Free · No account · Requires iOS 26</p>
+        <p className="final-note">Free download · Optional Forge Pro · iOS 26</p>
       </Reveal>
     </section>
   )

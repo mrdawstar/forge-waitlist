@@ -1,14 +1,18 @@
-# Launch content sources — 25 September 2026
+# Launch content sources — 4 October 2026
 
 ## Product images
 
-The five user-supplied screenshots are the source of truth. Their complete UI and aspect ratio are preserved; only image size/encoding changes for delivery.
+The user-supplied screenshots from 4 October are the current visual source. Their complete UI and aspect ratio are preserved; only image size/encoding changes for delivery (480px and 960px WebP, quality 88).
 
-- IMG_5100.PNG → public/screens/forge-today.webp
-- IMG_4444 2.PNG → public/screens/blade-progress.webp
-- IMG_4445 2.PNG → public/screens/blade-collection.webp
-- IMG_4442 2.PNG → public/screens/activity-record.webp
-- IMG_4440 2.PNG → public/screens/becoming.webp
+- IMG_5407.PNG → public/screens/forge-today.webp (hero and Plan)
+- IMG_5401.PNG → public/screens/blade-progress.webp (Earn)
+- IMG_5403.PNG → public/screens/activity-record.webp (hero and Record)
+- IMG_5404.PNG → public/screens/becoming.webp (hero and Become)
+- IMG_5406.PNG → public/screens/arcs.webp (Arcs)
+- IMG_5405.PNG → public/screens/ask-forge.webp (Ask Forge, labelled Forge Pro)
+- IMG_5409.PNG → public/screens/forge-earned-day.webp (Why Forge)
+
+IMG_5402.PNG is omitted because the blade collection does not need a separate screen in the tour. The old, unused blade-collection assets were removed.
 
 Sword and icon: matching app artwork from forge-ios Assets.xcassets/sword-layer.imageset and AppIcon.appiconset. No generated UI or simulated product screenshots.
 
@@ -23,17 +27,21 @@ The user supplied review text, but requested App Store verification. It could no
 
 ## Privacy
 
-Source of truth: mrdawstar/forge-ios, branch feat/telemetry, commit 677ecf5, PR #2.
-Read directly from Forge/Engine/ForgeTelemetry.swift, Forge/Views/Settings/SettingsTabView.swift and docs/APP_STORE.md (updated 2026-09-25).
+Current product-data source: the owner-supplied `privacy-policy.md`, “Forge Privacy Policy — the 1.1 changes”, dated 2026-10-04. The public page incorporates its substantive content, without publishing editorial notes. This replaces the earlier 1.0.1 privacy description. Website/support, developer details, analytics metadata and rights sections remain in place.
 
-- Anonymous usage sharing defaults on; Settings → Privacy → Share anonymous usage disables it.
-- Closed event values/counts and days_since_install; no user-entered content, chosen schedule times, or HealthKit readings.
-- SDK 2.14.2 metadata includes app/device/OS, screen/orientation, language/locale/region/time zone, appearance/accessibility and session/installation information.
-- SDK automatic session event is disabled; session metadata can still accompany explicit events.
-- Purchase/paywall/trial/restore event definitions currently have no call sites. Do not describe them as active collection.
-- No account, cloud sync, or AI service is active in this build.
+- Local record now includes onboarding answers, Arcs, Ask Forge history, widgets/Live Activity and export/import backups.
+- Apple Health reads steps, workout minutes, sleep and mindful minutes; raw readings stay on-device.
+- Forge Pro adds StoreKit purchases and anonymous purchase/trial/paywall/restore events.
+- Optional AI requires consent and an explicit request, uses Forge’s Supabase server and OpenAI, and verifies Pro access using Apple’s signed purchase record.
+- AI request counts and technical logs are separate from conversation content. No unverified 14-day automatic deletion or AI hosting-region guarantee is published.
+- Clarified that an AI identifier associates requests with an installation/purchase, and that information typed into shared text is included in the request.
+- OpenAI API data controls checked on 2026-10-04: no model training by default; abuse-monitoring retention generally up to 30 days, with stated exceptions. Requesting no response storage does not remove abuse-monitoring retention.
+- Homepage, support and existing terms were aligned with Pro, optional AI and backups.
 
-Reference: https://telemetrydeck.com/docs/ingest/default-parameters/
-Reference: https://telemetrydeck.com/docs/guides/privacy-faq/
+References:
+- https://developers.openai.com/api/docs/guides/your-data
+- https://openai.com/policies/
+- https://telemetrydeck.com/docs/ingest/default-parameters/
+- https://telemetrydeck.com/docs/guides/privacy-faq/
 
 Existing website Vercel hosting/analytics is preserved. The old email endpoint now returns HTTP 410 and cannot write new addresses. Historical Supabase schema/storage is retained; no existing records are deleted.

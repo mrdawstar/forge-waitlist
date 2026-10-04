@@ -80,16 +80,16 @@ export default function SupportPage() {
       <p>
         Deleting the app removes its local data. Device backups are managed
         through your Apple settings. See the{' '}
-        <a href="/privacy">Privacy Policy</a> for how anonymous analytics are
-        handled separately.
+        <a href="/privacy">Privacy Policy</a> for how exported backups, AI
+        identifiers and anonymous analytics are handled separately.
       </p>
 
       <h3>Why is Forge asking for Apple Health?</h3>
       <p>
-        Only so activities your phone already measures — steps, distance,
-        workouts — can tick themselves off. Access is read-only, nothing is ever
-        written back, and the readings are never stored or transmitted.
-        Declining it leaves the rest of the app working normally.
+        Only so activities your phone already measures — steps, workouts, sleep
+        and mindful minutes — can tick themselves off. Access is read-only,
+        nothing is ever written back, and the readings are never stored or
+        transmitted. Declining it leaves the rest of the app working normally.
       </p>
 
       <h3>Does Forge cost anything?</h3>
